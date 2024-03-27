@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solarium</title>
+    <style>
+        * {
+            font-family: arial, sans-serif;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: rgb(7, 7, 10);
+            width: 100%;
+        }
+
+        nav {
+            padding: 0px;
+            display: flex;
+            justify-content: space-around;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: rgb(7, 7, 10);
+            box-sizing: border-box;
+            color: rgb(255, 153, 0);
+        }
+
+        nav > a {
+            text-align: center;
+            padding: 10px;
+            width: 80%;
+            height: 10px;
+            font-size: 8px;
+            border: 1px solid rgb(52, 34, 0);
+        }
+
+        a:hover {
+            cursor: pointer;
+        }
+
+        .content {
+            box-sizing: border-box;
+            color: white;
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            background-color: rgb(7, 7, 10);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #fncf {
+            display: flex;
+            justify-content: center;
+        }
+
+        #feedback {
+            height: 150px;
+            width: 100%;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        .feedbackLabel {
+            padding-top: 30px;
+        }
+    </style>
+
+    <script>
+        function hideAllExcept(show) {
+            var elements = document.querySelectorAll('.content > *');
+            elements.forEach(function(element) {
+                if (element.classList.contains(show)) {
+                    element.style.display = 'block';
+                } else {
+                    element.style.display = 'none';
+                }
+            });
+        }
+
+        window.onload = function() {
+            hideAllExcept('cpip');
+        };
+    </script>
+</head>
+
+<body>
+    <nav>
+        <a onclick="hideAllExcept('cpip')">Company Profile / Introduction </a>
+        <a onclick="hideAllExcept('crp')">Course registration </a>
+        <a onclick="hideAllExcept('iclp')">Interactive Course Learning  </a>
+        <a onclick="hideAllExcept('ap')">Assessment  </a>
+        <a onclick="hideAllExcept('fncp')">Feedback and contact us </a>
+    </nav>
+
+    <div class="content">
+
+
+
+        <div class="cpip hidden" style="width: 50%; min-width: 400px;">
+            <div>
+                <br>
+            <span style="font-size: 35px;">Company Profile</span><br><br>
+
+                <span style="font-size: 25px; color: gray">Overview</span><br>
+                <span>
+Solarium is a pioneering educational platform dedicated to unraveling the wonders of our solar system. As a leading online resource, Solarium is committed to providing comprehensive and engaging content designed to foster curiosity, understanding, and appreciation for the cosmos. Our mission is to ignite a passion for astronomy and space exploration among learners of all ages, inspiring the next generation of scientists, educators, and enthusiasts.
+
+                </span><br><br>
+                <span style="font-size: 25px; color: gray">Vision</span><br>
+                <span>
+At Solarium, we envision a world where everyone has access to high-quality educational materials about the solar system. We strive to be the go-to destination for individuals seeking to expand their knowledge of the universe, offering innovative learning experiences that transcend geographical boundaries and cultural differences.
+                </span>
+            
+            </div>
+
+
+            <div><br><br>
+                <span style="font-size: 35px;">Introduction</span><br><br>
+
+                <span>
+                    Welcome to Solarium, your portal to the mesmerizing realms of our solar system. Our new website invites you to embark on an exhilarating journey through space as we unravel the mysteries of the planets that orbit our sun.
+
+Explore the rocky terrain of Mars, the swirling storms of Jupiter, and the icy landscapes of Neptune—all from the comfort of your own screen. Dive into immersive articles, captivating visuals, and interactive simulations that bring the wonders of the cosmos to life.
+
+Delve into the dynamics of planetary atmospheres, the intricacies of orbital mechanics, and the quest for extraterrestrial life. Our virtual planetarium offers a stunning tour of the night sky, allowing you to identify constellations and witness celestial events in real-time.
+<br><br>
+Join our vibrant community of learners, educators, and space enthusiasts to share insights, ask questions, and engage in spirited discussions about the universe. Whether you're a seasoned astronomer or a curious novice, there's something for everyone at Solarium.
+
+Empowering discovery, sparking curiosity, and fostering a deeper understanding of the cosmos—welcome to Solarium, where the wonders of space await. Begin your odyssey today and let the exploration begin.
+
+                </span><br><br><br><br>
+                
+            </div>
+        </div>
+
+        <div class="crp hidden">
+            <h1>crp</h1>
+        </div>
+
+        <div class="iclp hidden">
+            <h1>iclp</h1>
+            <span style="font-size: 50px; font-family: Arial, Helvetica, sans-serif;">Learn about our Solar System</span>
+        </div>
+
+        <div class="ap hidden">
+            <h1>ap</h1>
+        </div>
+
+
+
+
+
+
+        <div class="fncp hidden" style="width: 30%; min-width: 300px;">
+            
+            <div>
+                <br>
+            <span style="font-size: 35px;">Feedback</span><br><br>
+
+
+            <form name="fncf" id="fncf">
+
+                <table id="feedback">
+                    <tr>
+                        <td><label for="fn" class="feedbackLabel">full name: </label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="fn" id="fn" placeholder="full name"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="ei" class="feedbackLabel">email id: </label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="email" name="ei" id="ei" placeholder="email id"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fd" class="feedbackLabel">feedback: </label></td>
+                    </tr>
+                    <tr>
+                        <td><textarea placeholder="feedback" id="feedback"></textarea></td>
+                    </tr>
+                </table>
+
+            </form>
+            </div>
+
+
+            <div><br><br>
+                <span style="font-size: 35px;">Contact</span><br><br>
+
+                <span style="color:gray;">phone: </span><br>
+                <span style="font-size: 25px;">+91 8050377908 </span><br>
+                <span style="color:gray;">email id: </span><br>
+                <span style="font-size: 25px;">krishna.kenny4@gmail.com </span><br>
+                
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
