@@ -145,9 +145,34 @@
       input[type="radio"] {
         width: 30px;
       }
+
+      .iclp {
+        width: 60%;
+        margin: 30px 20%;
+      }
     </style>
 
     <script>
+      const dataDct = {
+        sun: "The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, heated to incandescence by nuclear fusion reactions in its core, radiating the energy mainly as visible light and infrared radiation. The Sun is by far the most important source of energy for life on Earth. It is a vital component of various physical and chemical processes that sustain life. Its influence extends far beyond its immediate vicinity, shaping the climate, weather patterns, and ecosystems of our planet. The Sun's energy output is remarkably stable over long periods, providing a reliable source of warmth and light. This stability has allowed life to evolve and thrive on Earth for billions of years. The Sun's energy is generated through a process known as nuclear fusion, where hydrogen atoms are fused together to form helium, releasing vast amounts of energy in the process. This energy gradually makes its way to the Sun's surface, where it is emitted into space as sunlight. The Sun's immense gravitational pull keeps the planets of the Solar System in orbit around it. Without the Sun's gravitational influence, the planets would fly off into space, and the Solar System as we know it would cease to exist. In addition to its role in sustaining life on Earth, the Sun has fascinated and inspired humans for centuries. Ancient cultures worshipped the Sun as a deity, attributing divine powers to its life-giving rays. Today, scientists continue to study the Sun to better understand its behavior and its impact on our planet and the wider universe.",
+        mercury:
+          "Mercury is the smallest and innermost planet in the Solar System. Its orbit around the Sun takes 87.97 Earth days, the shortest of all the planets in the Solar System. Mercury is named after the Roman messenger god, known for his speed and agility, fitting for the planet with the fastest orbit. Despite its small size, Mercury has a surprisingly complex geology, with features ranging from vast plains to towering cliffs and deep craters. Its surface is heavily scarred by impact craters, remnants of collisions with asteroids and comets over billions of years. Mercury's proximity to the Sun subjects it to extreme temperatures, with surface temperatures ranging from scorching hot to bitterly cold. The lack of a substantial atmosphere means that Mercury has little to no insulation, resulting in dramatic temperature variations between its day and night sides. Despite being the closest planet to the Sun, Mercury is not the hottest; that distinction belongs to Venus, due to its thick atmosphere trapping heat. Mercury has been visited by only two spacecraft: Mariner 10 in 1974 and 1975, and Messenger, which orbited the planet from 2011 to 2015. These missions provided valuable data about Mercury's surface, composition, and magnetic field, shedding light on its mysterious properties. Mercury's close proximity to the Sun makes it a challenging target for exploration, but its unique characteristics make it a fascinating subject of study for scientists seeking to unravel the mysteries of our Solar System's innermost planet.",
+        venus:
+          "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty. It is sometimes referred to as the 'Morning Star' or the 'Evening Star'. Venus is often called Earth's 'sister planet' because of their similar size, composition, and proximity to the Sun. However, despite these similarities, Venus is a hostile and inhospitable world, with surface temperatures hot enough to melt lead and an atmosphere dominated by thick clouds of sulfuric acid. The surface of Venus is obscured by these dense clouds, making it difficult to study using traditional optical telescopes. However, radar imaging from spacecraft orbiting Venus has revealed a landscape dominated by vast plains, highland regions, and thousands of volcanoes, indicating a history of intense volcanic activity. Despite its harsh conditions, Venus has long captured the imagination of scientists and writers alike. Early astronomers believed Venus to be a lush, tropical paradise, but modern observations have painted a very different picture. The extreme temperatures and pressures on Venus make it unlikely to harbor life as we know it, but some scientists speculate that microbial life could exist in the upper layers of its atmosphere, where conditions are more moderate. Future missions to Venus, such as NASA's proposed VERITAS and DAVINCI+ missions, aim to further explore and understand this enigmatic world, shedding light on its geology, atmosphere, and potential for past or present habitability.",
+        earth:
+          "Earth is the third planet from the Sun and the only astronomical object known to harbor life. It is the densest planet in the Solar System and the largest of the four terrestrial planets. Earth's surface is approximately 71% water and 29% land, with its atmosphere composed primarily of nitrogen and oxygen, along with traces of other gases. The presence of liquid water, essential for life as we know it, sets Earth apart from its neighboring planets. The planet's dynamic climate and geology are shaped by a variety of factors, including its rotation, orbit, and interactions between the atmosphere, hydrosphere, biosphere, and lithosphere. Earth's biosphere encompasses a rich diversity of life forms, ranging from microscopic bacteria to towering redwood trees and majestic blue whales. These organisms interact with each other and their environment in complex ecosystems that span the globe. Humans, as the dominant species on Earth, have had a profound impact on the planet's environment and ecosystems. Our activities, such as deforestation, pollution, and climate change, have altered Earth's landscapes and threatened the survival of countless species. As stewards of our planet, it is imperative that we work together to protect and preserve Earth's natural resources for future generations. Through scientific research, conservation efforts, and sustainable practices, we can ensure that Earth remains a vibrant and hospitable home for all life.",
+        moon: "The Moon is Earth's only natural satellite and is the fifth largest satellite in the Solar System. It has a diameter of about 3,474 kilometers (2,159 miles), making it much smaller than Earth. Despite its relatively small size, the Moon plays a crucial role in shaping our planet's environment and has captivated human imagination for millennia. The Moon's gravitational pull influences Earth's tides, creating the ebb and flow of ocean waters. This tidal interaction has profound effects on marine ecosystems, coastal landscapes, and even the Earth's rotation. The Moon's gravitational influence also helps stabilize Earth's axial tilt, which is essential for maintaining stable climate conditions over long periods. In addition to its gravitational effects, the Moon has been a source of inspiration and fascination for cultures around the world. Its luminous presence in the night sky has inspired countless myths, legends, and works of art throughout history. The Moon's surface is scarred by impact craters, ancient lava flows, and rugged mountain ranges. These features provide valuable insights into the geological processes that have shaped both the Moon and Earth. The Moon lacks a substantial atmosphere and magnetic field, exposing its surface to the harsh environment of space. As a result, the lunar landscape is barren and airless, with temperatures ranging from extreme heat to bitter cold. Despite these challenges, the Moon remains an object of scientific interest and exploration. In 1969, NASA astronauts Neil Armstrong and Buzz Aldrin became the first humans to set foot on the lunar surface as part of the Apollo 11 mission. Since then, several other missions have visited the Moon, conducting experiments and gathering data to better understand its origins and evolution. In recent years, there has been renewed interest in returning humans to the Moon, with plans for crewed missions and the establishment of lunar bases. The Moon holds great potential as a staging ground for future space exploration missions, serving as a stepping stone to more distant destinations such as Mars and beyond. In addition to its scientific and practical significance, the Moon continues to capture the imagination of people around the world, serving as a symbol of mystery, wonder, and the enduring spirit of exploration.",
+        mars: "Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System after Mercury. It is often called the 'Red Planet' due to its reddish appearance, caused by iron oxide (rust) on its surface. Mars has intrigued humans for centuries, inspiring countless works of science fiction and fueling dreams of exploration and colonization. The planet's surface features numerous geological formations, including vast plains, towering mountains, and deep valleys, carved by ancient rivers and volcanic activity. Mars is home to the largest volcano in the Solar System, Olympus Mons, which rises nearly 22 kilometers (13.6 miles) above the surrounding plains. The planet's thin atmosphere, composed mainly of carbon dioxide, provides little protection from the Sun's radiation and makes it impossible for liquid water to exist on the surface. However, evidence from spacecraft orbiting Mars suggests that liquid water may have flowed on its surface in the distant past, raising intriguing questions about the planet's potential for past or present habitability. Mars has been the subject of numerous robotic missions, including the Mars rovers Spirit, Opportunity, and Curiosity, which have provided valuable data about its geology, climate, and atmosphere. Future missions, such as NASA's Perseverance rover and the European Space Agency's ExoMars rover, aim to further explore Mars and search for signs of past or present life. Ultimately, Mars remains a tantalizing target for human exploration, with the potential to answer fundamental questions about the origins of life in the Solar System and beyond.",
+        jupiter:
+          "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with mass one-thousandth that of the Sun but is two and a half times the mass of all the other planets in the Solar System combined. Jupiter's immense size and gravitational influence have shaped the architecture of the Solar System, influencing the orbits of nearby asteroids and comets and protecting the inner planets from potential impacts. The planet's iconic feature is its Great Red Spot, a massive storm system that has raged for centuries and is larger than Earth itself. Jupiter's atmosphere is primarily composed of hydrogen and helium, with traces of other gases and volatile compounds. The planet's deep atmosphere is characterized by bands of clouds and swirling storms, including lightning-filled thunderstorms and cyclonic vortices. Jupiter has a faint ring system and a diverse system of moons, with over 80 known satellites orbiting the planet. The largest of these moons, Ganymede, Callisto, Io, and Europa, are known as the Galilean moons and were discovered by the astronomer Galileo Galilei in 1610. These moons are geologically active worlds, with volcanic eruptions, ice-covered oceans, and subsurface oceans that may harbor conditions conducive to life. Jupiter has been visited by several spacecraft, including NASA's Pioneer 10, Pioneer 11, Voyager 1, Voyager 2, Galileo, and Juno missions, which have provided valuable data about its atmosphere, magnetic field, and moons. Future missions, such as NASA's Europa Clipper and the European Space Agency's JUpiter ICy moons Explorer (JUICE), aim to further explore Jupiter and its fascinating moons, shedding light on their origins and potential habitability.",
+        saturn:
+          "Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius about nine times that of Earth. Saturn is best known for its iconic ring system, which consists of thousands of individual ringlets made primarily of ice and rock particles. These rings extend hundreds of thousands of kilometers from the planet's surface and are thought to be the remnants of a destroyed moon or captured asteroids. Saturn's rings are constantly changing, influenced by the planet's gravity and interactions with its moons. The planet's atmosphere is primarily composed of hydrogen and helium, with traces of other gases and volatile compounds. Saturn's deep atmosphere is characterized by bands of clouds and swirling storms, including a hexagonal-shaped storm system at its north pole. Saturn has a diverse system of moons, with over 80 known satellites orbiting the planet. The largest of these moons, Titan, is larger than the planet Mercury and has a thick atmosphere rich in nitrogen, methane, and other organic compounds. Titan's surface features rivers, lakes, and seas of liquid methane and ethane, making it the only other world in the Solar System known to have stable bodies of liquid on its surface. Saturn has been visited by several spacecraft, including NASA's Pioneer 11, Voyager 1, Voyager 2, and the Cassini-Huygens mission, which orbited the planet from 2004 to 2017. These missions have provided valuable data about Saturn's atmosphere, rings, and moons, revealing a dynamic and fascinating world worthy of further exploration.",
+        uranus:
+          "Uranus is the seventh planet from the Sun. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System. Uranus is often referred to as an 'ice giant' because of its composition, which includes a significant proportion of water, ammonia, and methane ice. The planet's atmosphere is primarily composed of hydrogen and helium, with traces of methane that give it a blue-green color. Uranus is unique among the planets of the Solar System because it rotates on its side, with its axis of rotation tilted nearly perpendicular to its orbit around the Sun. This extreme tilt results in dramatic seasonal variations, with each pole experiencing 42 years of continuous daylight followed by 42 years of darkness. Uranus has a system of faint rings and a diverse system of moons, with 27 known satellites orbiting the planet. The largest of these moons, Titania, Oberon, Umbriel, Ariel, and Miranda, were discovered by the astronomer William Herschel in 1781. These moons are thought to be captured objects from the outer Solar System, similar to the moons of Saturn and Jupiter. Uranus has been visited by only one spacecraft, NASA's Voyager 2, which flew by the planet in 1986. The Voyager 2 mission provided valuable data about Uranus' atmosphere, rings, and moons, revealing a dynamic and intriguing world that continues to fascinate scientists and astronomers.",
+        neptune:
+          "Neptune is the eighth and farthest known planet from the Sun in the Solar System. It is a gas giant, similar in composition to Uranus, with a thick atmosphere primarily composed of hydrogen, helium, and methane. Neptune is often referred to as the 'Blue Giant' because of its vivid blue coloration, caused by the absorption of red light by methane in its atmosphere. The planet's atmosphere is characterized by high-speed winds, reaching speeds of up to 2,100 kilometers per hour (1,300 miles per hour), and large storm systems, including the famous Great Dark Spot, a massive storm system similar to Jupiter's Great Red Spot. Neptune has a faint ring system and a diverse system of moons, with 14 known satellites orbiting the planet. The largest of these moons, Triton, is thought to be a captured object from the Kuiper Belt, a region of icy bodies beyond the orbit of Neptune. Triton is one of the coldest objects in the Solar System, with surface temperatures approaching absolute zero, and is geologically active, with cryovolcanoes erupting icy plumes into space. Neptune has been visited by only one spacecraft, NASA's Voyager 2, which flew by the planet in 1989. The Voyager 2 mission provided valuable data about Neptune's atmosphere, rings, and moons, revealing a dynamic and mysterious world that continues to intrigue scientists and astronomers.",
+      };
+
       function hideAllExcept(show) {
         var elements = document.querySelectorAll(".content > *");
         elements.forEach(function (element) {
@@ -159,8 +184,52 @@
         });
       }
 
+      const spaceWords = [
+        "Galaxy",
+        "Nebula",
+        "Supernova",
+        "Comet",
+        "Asteroid",
+        "Black Hole",
+        "Constellation",
+        "Celestial",
+        "Satellite",
+        "Orbit",
+        "Universe",
+        "Astronaut",
+        "Gravity",
+        "Solar System",
+        "Cosmology",
+        "Exoplanet",
+        "Lunar",
+        "Interstellar",
+        "Cosmic",
+        "Milky Way",
+      ];
+
+      // Function to get a random word from the spaceWords list
+      function getRandomWord() {
+        const randomIndex = Math.floor(Math.random() * spaceWords.length);
+        return spaceWords[randomIndex];
+      }
+
+      // Function to update the word of the day
+      function updateWordOfTheDay() {
+        // Get a random space-related word
+        const wordOfTheDay = getRandomWord();
+
+        // Display the word of the day
+        const wordOfTheDayDiv = document.getElementById("word-of-the-day");
+        wordOfTheDayDiv.innerHTML = `
+        <div style="background-color: orange; color: black; padding: 10px;">
+            <strong>Word of the Day:</strong> ${wordOfTheDay}
+        </div>
+    `;
+      }
+
       window.onload = function () {
         hideAllExcept("cpip");
+        updateWordOfTheDay();
       };
 
       function courseSelect() {
@@ -174,7 +243,7 @@
         window.alert(
           "Courses Selected: " +
             checked +
-            "\nInterractive course learning page has been updated"
+            "\nInteractive course learning page has been updated"
         );
       }
 
@@ -222,6 +291,38 @@
 
         alert(`Your score: ${score}/10`);
       }
+
+      function showSelected() {
+        let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        let selectedCourses = document.createElement("div");
+        selectedCourses.classList.add("selected-courses");
+
+        checkboxes.forEach(function (checkbox) {
+          if (checkbox.checked) {
+            let name = checkbox.id.replace("-checkbox", "");
+            let courseContent = dataDct[name];
+            let courseInfo = document.createElement("div");
+            courseInfo.innerHTML = `<h2 style="color: orange";>${name}</h2><p>${courseContent}</p>`;
+            selectedCourses.appendChild(courseInfo);
+          }
+        });
+
+        let interactiveLearningDiv = document.querySelector(".iclp");
+        interactiveLearningDiv.innerHTML = "";
+        if (selectedCourses.childNodes.length > 0) {
+          interactiveLearningDiv.appendChild(selectedCourses);
+        } else {
+          let noCoursesSelected = document.createElement("h1");
+          noCoursesSelected.style.textAlign = "center";
+          noCoursesSelected.textContent = "No courses selected";
+          interactiveLearningDiv.appendChild(noCoursesSelected);
+        }
+      }
+
+      function updateLearning() {
+        hideAllExcept("iclp");
+        showSelected();
+      }
     </script>
   </head>
 
@@ -229,13 +330,15 @@
     <nav>
       <a onclick="hideAllExcept('cpip')">Company Profile / Introduction </a>
       <a onclick="hideAllExcept('crp')">Course registration </a>
-      <a onclick="hideAllExcept('iclp')">Interactive Course Learning </a>
+      <a onclick="updateLearning()">Interactive Course Learning </a>
       <a onclick="hideAllExcept('ap')">Assessment </a>
       <a onclick="hideAllExcept('fncp')">Feedback and contact us </a>
     </nav>
 
     <div class="content">
       <div class="cpip hidden" style="width: 50%; min-width: 400px">
+        <br /><br />
+        <div id="word-of-the-day"></div>
         <div>
           <br />
           <span style="font-size: 35px; color: orange">Company Profile</span
@@ -630,10 +733,10 @@
       </div>
 
       <div class="iclp hidden">
-        <h1>iclp</h1>
+        <h1>Interactive Course Learning</h1>
         <span style="font-size: 50px; font-family: Arial, Helvetica, sans-serif"
-          >Learn about our Solar System</span
-        >
+          >Selected Courses:
+        </span>
       </div>
 
       <div class="ap hidden">
