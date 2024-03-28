@@ -150,6 +150,11 @@
         width: 60%;
         margin: 30px 20%;
       }
+
+      .course-image-learning {
+        width: 50%;
+        margin: 20px 25%;
+      }
     </style>
 
     <script>
@@ -302,7 +307,12 @@
             let name = checkbox.id.replace("-checkbox", "");
             let courseContent = dataDct[name];
             let courseInfo = document.createElement("div");
-            courseInfo.innerHTML = `<h2 style="color: orange";>${name}</h2><p>${courseContent}</p>`;
+            courseInfo.classList.add("course-info");
+            courseInfo.innerHTML = `
+                <h2 style="color: orange;">${name}</h2>
+                <img src="./assets/${name}.jpg" alt="${name}" class="course-image-learning" />
+                <p>${courseContent}</p><br /><br />
+            `;
             selectedCourses.appendChild(courseInfo);
           }
         });
@@ -427,10 +437,10 @@
               <td style="text-align: center">
                 <div style="position: relative">
                   <img
-                    src="sun.jpg"
+                    src="./assets/sun.jpg"
                     alt="Sun"
                     class="course-image"
-                    style="width: 100px; height: 200px"
+                    style="width: 400px; height: 200px"
                   />
                   <span
                     style="
@@ -457,10 +467,10 @@
               <td style="text-align: center">
                 <div style="position: relative">
                   <img
-                    src="mercury.jpg"
+                    src="./assets/mercury.jpg"
                     alt="Mercury"
                     class="course-image"
-                    style="width: 100px; height: 200px"
+                    style="width: 400px; height: 200px"
                   />
                   <span
                     style="
@@ -488,10 +498,10 @@
               <td style="text-align: center">
                 <div style="position: relative">
                   <img
-                    src="venus.jpg"
+                    src="./assets/venus.jpg"
                     alt="Venus"
                     class="course-image"
-                    style="width: 100px; height: 200px"
+                    style="width: 400px; height: 200px"
                   />
                   <span
                     style="
@@ -519,10 +529,10 @@
               <td style="text-align: center">
                 <div style="position: relative">
                   <img
-                    src="earth.jpg"
+                    src="./assets/earth.jpg"
                     alt="Earth"
                     class="course-image"
-                    style="width: 100px; height: 200px"
+                    style="width: 400px; height: 200px"
                   />
                   <span
                     style="
@@ -550,10 +560,10 @@
               <td style="text-align: center">
                 <div style="position: relative">
                   <img
-                    src="moon.jpg"
+                    src="./assets/moon.jpg"
                     alt="Moon"
                     class="course-image"
-                    style="width: 100px; height: 200px"
+                    style="width: 400px; height: 200px"
                   />
                   <span
                     style="
@@ -581,10 +591,10 @@
               <td style="text-align: center">
                 <div style="position: relative">
                   <img
-                    src="mars.jpg"
+                    src="./assets/mars.jpg"
                     alt="Mars"
                     class="course-image"
-                    style="width: 100px; height: 200px"
+                    style="width: 400px; height: 200px"
                   />
                   <span
                     style="
@@ -612,10 +622,10 @@
               <td style="text-align: center">
                 <div style="position: relative">
                   <img
-                    src="jupiter.jpg"
+                    src="./assets/jupiter.jpg"
                     alt="Jupiter"
                     class="course-image"
-                    style="width: 100px; height: 200px"
+                    style="width: 400px; height: 200px"
                   />
                   <span
                     style="
@@ -643,10 +653,10 @@
               <td style="text-align: center">
                 <div style="position: relative">
                   <img
-                    src="saturn.jpg"
+                    src="./assets/saturn.jpg"
                     alt="Saturn"
                     class="course-image"
-                    style="width: 100px; height: 200px"
+                    style="width: 400px; height: 200px"
                   />
                   <span
                     style="
@@ -674,10 +684,10 @@
               <td style="text-align: center">
                 <div style="position: relative">
                   <img
-                    src="uranus.jpg"
+                    src="./assets/uranus.jpg"
                     alt="Uranus"
                     class="course-image"
-                    style="width: 100px; height: 200px"
+                    style="width: 400px; height: 200px"
                   />
                   <span
                     style="
@@ -704,10 +714,10 @@
               <td style="text-align: center">
                 <div style="position: relative">
                   <img
-                    src="neptune.jpg"
+                    src="./assets/neptune.jpg"
                     alt="Neptune"
                     class="course-image"
-                    style="width: 100px; height: 200px"
+                    style="width: 400px; height: 200px"
                   />
                   <span
                     style="
