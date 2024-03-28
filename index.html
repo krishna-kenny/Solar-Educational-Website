@@ -1,207 +1,807 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Solarium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            font-family: arial, sans-serif;
-        }
+      * {
+        font-family: "Roboto", sans-serif;
+      }
 
-        body {
-            margin: 0px;
-            padding: 0px;
-            background-color: rgb(7, 7, 10);
-            width: 100%;
-        }
+      body {
+        margin: 0px;
+        padding: 0px;
+        background-image: url("./assets/back.jpg");
+        width: 100%;
+      }
 
-        nav {
-            padding: 0px;
-            display: flex;
-            justify-content: space-around;
-            position: sticky;
-            top: 0;
-            width: 100%;
-            background-color: rgb(7, 7, 10);
-            box-sizing: border-box;
-            color: rgb(255, 153, 0);
-        }
+      nav {
+        padding: 0px;
+        display: flex;
+        justify-content: space-around;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background-color: rgb(7, 7, 10);
+        box-sizing: border-box;
+        color: rgb(255, 153, 0);
+      }
 
-        nav > a {
-            text-align: center;
-            padding: 10px;
-            width: 80%;
-            height: 10px;
-            font-size: 8px;
-            border: 1px solid rgb(52, 34, 0);
-        }
+      nav > a {
+        text-align: center;
+        padding: 10px;
+        width: 80%;
+        font-size: 8px;
+        border: 1px solid rgb(52, 34, 0);
+      }
 
-        a:hover {
-            cursor: pointer;
-        }
+      a:hover {
+        cursor: pointer;
+      }
 
-        .content {
-            box-sizing: border-box;
-            color: white;
-            display: flex;
-            justify-content: center;
-            margin: 20px;
-            background-color: rgb(7, 7, 10);
-        }
+      .content {
+        box-sizing: border-box;
+        color: white;
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+        background-color: transparent;
+      }
 
-        .hidden {
-            display: none;
-        }
+      .hidden {
+        display: none;
+      }
 
-        #fncf {
-            display: flex;
-            justify-content: center;
-        }
+      #fncf {
+        display: flex;
+        justify-content: center;
+      }
 
-        #feedback {
-            height: 150px;
-            width: 100%;
-        }
+      #feedback {
+        width: 100%;
+      }
 
-        input {
-            width: 100%;
-        }
+      #feedback-textarea {
+        height: 150px;
+        width: 100%;
+      }
 
-        .feedbackLabel {
-            padding-top: 30px;
-        }
+      input {
+        width: 100%;
+      }
+
+      .feedbackLabel {
+        padding-top: 30px;
+      }
+
+      thead {
+        background-color: orange;
+        color: black;
+      }
+
+      input[type="checkbox"] {
+        width: 30px; /* Set width */
+        height: 30px; /* Set height */
+      }
+
+      .submitButton {
+        background-color: black;
+        color: orange;
+        padding: 4px 10px;
+        border: 1px solid orange;
+      }
+
+      .submitButton:active,
+      .submitButton:hover {
+        background-color: orange;
+        color: black;
+      }
+
+      nav > a:active,
+      nav > a:hover {
+        background-color: orange;
+        color: black;
+      }
+
+      .ap.hidden {
+        display: block;
+        margin: 20px auto;
+        width: 70%;
+        background-color: transparent;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .ap h1 {
+        font-size: 44px;
+        margin-bottom: 20px;
+        color: orange;
+      }
+
+      .ap ol {
+        list-style: none;
+        padding: 0;
+      }
+
+      .ap ol li {
+        margin-bottom: 20px;
+      }
+
+      .ap ol li p {
+        font-size: 18px;
+        color: orange;
+        margin-bottom: 10px;
+      }
+
+      .ap ol li input[type="radio"] {
+        margin-right: 10px;
+      }
+
+      input[type="radio"] {
+        width: 30px;
+      }
     </style>
 
     <script>
-        function hideAllExcept(show) {
-            var elements = document.querySelectorAll('.content > *');
-            elements.forEach(function(element) {
-                if (element.classList.contains(show)) {
-                    element.style.display = 'block';
-                } else {
-                    element.style.display = 'none';
-                }
-            });
+      function hideAllExcept(show) {
+        var elements = document.querySelectorAll(".content > *");
+        elements.forEach(function (element) {
+          if (element.classList.contains(show)) {
+            element.style.display = "block";
+          } else {
+            element.style.display = "none";
+          }
+        });
+      }
+
+      window.onload = function () {
+        hideAllExcept("cpip");
+      };
+
+      function courseSelect() {
+        let check = document.querySelectorAll("input[type=checkbox]");
+        let checked = [];
+        for (let i = 0; i < check.length; i++) {
+          if (check[i].checked) {
+            checked.push(check[i].id.replace("-checkbox", ""));
+          }
+        }
+        window.alert(
+          "Courses Selected: " +
+            checked +
+            "\nInterractive course learning page has been updated"
+        );
+      }
+
+      function submitFeedback() {
+        let name = document.getElementById("fn").value;
+        let email = document.getElementById("ei").value;
+        let feedback = document.getElementById("feedback-textarea").value;
+        window.alert(
+          "name: " + name + "\nemail: " + email + "\nfeedback: " + feedback
+        );
+      }
+
+      function submitAssessment() {
+        let userAnswers = [];
+        let correctAnswers = [
+          "b", // Question 1
+          "c", // Question 2
+          "a", // Question 3
+          "d", // Question 4
+          "a", // Question 5
+          "c", // Question 6
+          "b", // Question 7
+          "d", // Question 8
+          "c", // Question 9
+          "a", // Question 10
+        ];
+
+        for (let i = 1; i <= 10; i++) {
+          let selectedOption = document.querySelector(
+            `input[name=q${i}]:checked`
+          );
+          if (selectedOption) {
+            userAnswers.push(selectedOption.value);
+          } else {
+            userAnswers.push(null);
+          }
         }
 
-        window.onload = function() {
-            hideAllExcept('cpip');
-        };
-    </script>
-</head>
+        let score = 0;
+        for (let i = 0; i < 10; i++) {
+          if (userAnswers[i] === correctAnswers[i]) {
+            score++;
+          }
+        }
 
-<body>
+        alert(`Your score: ${score}/10`);
+      }
+    </script>
+  </head>
+
+  <body>
     <nav>
-        <a onclick="hideAllExcept('cpip')">Company Profile / Introduction </a>
-        <a onclick="hideAllExcept('crp')">Course registration </a>
-        <a onclick="hideAllExcept('iclp')">Interactive Course Learning  </a>
-        <a onclick="hideAllExcept('ap')">Assessment  </a>
-        <a onclick="hideAllExcept('fncp')">Feedback and contact us </a>
+      <a onclick="hideAllExcept('cpip')">Company Profile / Introduction </a>
+      <a onclick="hideAllExcept('crp')">Course registration </a>
+      <a onclick="hideAllExcept('iclp')">Interactive Course Learning </a>
+      <a onclick="hideAllExcept('ap')">Assessment </a>
+      <a onclick="hideAllExcept('fncp')">Feedback and contact us </a>
     </nav>
 
     <div class="content">
+      <div class="cpip hidden" style="width: 50%; min-width: 400px">
+        <div>
+          <br />
+          <span style="font-size: 35px; color: orange">Company Profile</span
+          ><br /><br />
 
-
-
-        <div class="cpip hidden" style="width: 50%; min-width: 400px;">
-            <div>
-                <br>
-            <span style="font-size: 35px;">Company Profile</span><br><br>
-
-                <span style="font-size: 25px; color: gray">Overview</span><br>
-                <span>
-Solarium is a pioneering educational platform dedicated to unraveling the wonders of our solar system. As a leading online resource, Solarium is committed to providing comprehensive and engaging content designed to foster curiosity, understanding, and appreciation for the cosmos. Our mission is to ignite a passion for astronomy and space exploration among learners of all ages, inspiring the next generation of scientists, educators, and enthusiasts.
-
-                </span><br><br>
-                <span style="font-size: 25px; color: gray">Vision</span><br>
-                <span>
-At Solarium, we envision a world where everyone has access to high-quality educational materials about the solar system. We strive to be the go-to destination for individuals seeking to expand their knowledge of the universe, offering innovative learning experiences that transcend geographical boundaries and cultural differences.
-                </span>
-            
-            </div>
-
-
-            <div><br><br>
-                <span style="font-size: 35px;">Introduction</span><br><br>
-
-                <span>
-                    Welcome to Solarium, your portal to the mesmerizing realms of our solar system. Our new website invites you to embark on an exhilarating journey through space as we unravel the mysteries of the planets that orbit our sun.
-
-Explore the rocky terrain of Mars, the swirling storms of Jupiter, and the icy landscapes of Neptune—all from the comfort of your own screen. Dive into immersive articles, captivating visuals, and interactive simulations that bring the wonders of the cosmos to life.
-
-Delve into the dynamics of planetary atmospheres, the intricacies of orbital mechanics, and the quest for extraterrestrial life. Our virtual planetarium offers a stunning tour of the night sky, allowing you to identify constellations and witness celestial events in real-time.
-<br><br>
-Join our vibrant community of learners, educators, and space enthusiasts to share insights, ask questions, and engage in spirited discussions about the universe. Whether you're a seasoned astronomer or a curious novice, there's something for everyone at Solarium.
-
-Empowering discovery, sparking curiosity, and fostering a deeper understanding of the cosmos—welcome to Solarium, where the wonders of space await. Begin your odyssey today and let the exploration begin.
-
-                </span><br><br><br><br>
-                
-            </div>
+          <span style="font-size: 25px; color: gray">Overview</span><br />
+          <span>
+            Solarium is a pioneering educational platform dedicated to
+            unraveling the wonders of our solar system. As a leading online
+            resource, Solarium is committed to providing comprehensive and
+            engaging content designed to foster curiosity, understanding, and
+            appreciation for the cosmos. Our mission is to ignite a passion for
+            astronomy and space exploration among learners of all ages,
+            inspiring the next generation of scientists, educators, and
+            enthusiasts. </span
+          ><br /><br />
+          <span style="font-size: 25px; color: gray">Vision</span><br />
+          <span>
+            At Solarium, we envision a world where everyone has access to
+            high-quality educational materials about the solar system. We strive
+            to be the go-to destination for individuals seeking to expand their
+            knowledge of the universe, offering innovative learning experiences
+            that transcend geographical boundaries and cultural differences.
+          </span>
         </div>
 
-        <div class="crp hidden">
-            <h1>crp</h1>
+        <div>
+          <br /><br /><br />
+          <span style="font-size: 35px; color: orange">Introduction</span
+          ><br /><br />
+
+          <span>
+            Welcome to Solarium, your portal to the mesmerizing realms of our
+            solar system. Our new website invites you to embark on an
+            exhilarating journey through space as we unravel the mysteries of
+            the planets that orbit our sun. Explore the rocky terrain of Mars,
+            the swirling storms of Jupiter, and the icy landscapes of
+            Neptune—all from the comfort of your own screen. Dive into immersive
+            articles, captivating visuals, and interactive simulations that
+            bring the wonders of the cosmos to life. Delve into the dynamics of
+            planetary atmospheres, the intricacies of orbital mechanics, and the
+            quest for extraterrestrial life. Our virtual planetarium offers a
+            stunning tour of the night sky, allowing you to identify
+            constellations and witness celestial events in real-time.
+            <br /><br />
+            Join our vibrant community of learners, educators, and space
+            enthusiasts to share insights, ask questions, and engage in spirited
+            discussions about the universe. Whether you're a seasoned astronomer
+            or a curious novice, there's something for everyone at Solarium.
+            Empowering discovery, sparking curiosity, and fostering a deeper
+            understanding of the cosmos—welcome to Solarium, where the wonders
+            of space await. Begin your odyssey today and let the exploration
+            begin. </span
+          ><br /><br /><br /><br />
+        </div>
+      </div>
+
+      <div class="crp hidden">
+        <span style="margin-left: 15%; font-size: 40px"
+          >Course Registration</span
+        >
+        <button
+          class="submitButton"
+          onclick="courseSelect()"
+          style="
+            float: right;
+            margin-right: 15%;
+            padding: 20px;
+            font-size: 25px;
+          "
+        >
+          Submit selected courses</button
+        ><br /><br /><br />
+        <table style="margin-left: 15%; margin-right: 15%; width: 70%">
+          <thead>
+            <tr>
+              <th>Select</th>
+              <th>Course Name</th>
+              <th width="50%;">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Sun -->
+            <tr>
+              <td><input type="checkbox" id="sun-checkbox" /></td>
+              <td style="text-align: center">
+                <div style="position: relative">
+                  <img
+                    src="sun.jpg"
+                    alt="Sun"
+                    class="course-image"
+                    style="width: 100px; height: 200px"
+                  />
+                  <span
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                    "
+                    >Sun</span
+                  >
+                </div>
+              </td>
+              <td>
+                Grasp the fiery heart of our solar system—the Sun. Explore its
+                nuclear fusion processes, sunspots, and the solar wind that
+                shapes space weather. Understand the delicate balance between
+                gravity and radiation pressure that sustains our existence.
+                Witness the dynamic dance of light and energy.
+              </td>
+            </tr>
+            <!-- Mercury -->
+            <tr>
+              <td><input type="checkbox" id="mercury-checkbox" /></td>
+              <td style="text-align: center">
+                <div style="position: relative">
+                  <img
+                    src="mercury.jpg"
+                    alt="Mercury"
+                    class="course-image"
+                    style="width: 100px; height: 200px"
+                  />
+                  <span
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                    "
+                    >Mercury</span
+                  >
+                </div>
+              </td>
+              <td>
+                Embark on a celestial journey to explore the smallest planet in
+                our solar system. Discover its extreme temperature variations,
+                lack of atmosphere, and intriguing surface features, including
+                vast impact craters and mysterious scarps. Uncover the secrets
+                hidden within this enigmatic world.
+              </td>
+            </tr>
+
+            <!-- Venus -->
+            <tr>
+              <td><input type="checkbox" id="venus-checkbox" /></td>
+              <td style="text-align: center">
+                <div style="position: relative">
+                  <img
+                    src="venus.jpg"
+                    alt="Venus"
+                    class="course-image"
+                    style="width: 100px; height: 200px"
+                  />
+                  <span
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                    "
+                    >Venus</span
+                  >
+                </div>
+              </td>
+              <td>
+                Immerse yourself in the scorching realm of Venus, where thick
+                clouds of sulfuric acid shroud the surface. Investigate its
+                runaway greenhouse effect, intense volcanic activity, and the
+                enigma of its slow retrograde rotation. Unveil the beauty and
+                challenges of Earth’s “sister planet.”
+              </td>
+            </tr>
+
+            <!-- Earth -->
+            <tr>
+              <td><input type="checkbox" id="earth-checkbox" /></td>
+              <td style="text-align: center">
+                <div style="position: relative">
+                  <img
+                    src="earth.jpg"
+                    alt="Earth"
+                    class="course-image"
+                    style="width: 100px; height: 200px"
+                  />
+                  <span
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                    "
+                    >Earth</span
+                  >
+                </div>
+              </td>
+              <td>
+                Dive into the intricate web of Earth’s geology, meteorology, and
+                oceanography. Study plate tectonics, climate dynamics, and the
+                delicate balance that sustains life. Explore the biosphere,
+                hydrosphere, and atmosphere—the interconnected systems that make
+                our planet a vibrant oasis in the cosmos.
+              </td>
+            </tr>
+
+            <!-- Moon -->
+            <tr>
+              <td><input type="checkbox" id="moon-checkbox" /></td>
+              <td style="text-align: center">
+                <div style="position: relative">
+                  <img
+                    src="moon.jpg"
+                    alt="Moon"
+                    class="course-image"
+                    style="width: 100px; height: 200px"
+                  />
+                  <span
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                    "
+                    >Moon</span
+                  >
+                </div>
+              </td>
+              <td>
+                Unearth the lunar mysteries that have fascinated humanity for
+                eons. Study the Moon’s phases, craters, and ancient lava flows.
+                Explore Apollo landing sites and the quest for water ice in
+                permanently shadowed regions. From moonquakes to lunar
+                evolution, unravel the story written on its rocky surface.
+              </td>
+            </tr>
+
+            <!-- Mars -->
+            <tr>
+              <td><input type="checkbox" id="mars-checkbox" /></td>
+              <td style="text-align: center">
+                <div style="position: relative">
+                  <img
+                    src="mars.jpg"
+                    alt="Mars"
+                    class="course-image"
+                    style="width: 100px; height: 200px"
+                  />
+                  <span
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                    "
+                    >Mars</span
+                  >
+                </div>
+              </td>
+              <td>
+                Venture to the rusty plains and towering volcanoes of Mars.
+                Investigate evidence of ancient rivers, polar ice caps, and the
+                possibility of past life. Analyze the challenges of future human
+                missions to the Red Planet and unravel the mysteries that have
+                captivated astronomers for centuries.
+              </td>
+            </tr>
+
+            <!-- Jupiter -->
+            <tr>
+              <td><input type="checkbox" id="jupiter-checkbox" /></td>
+              <td style="text-align: center">
+                <div style="position: relative">
+                  <img
+                    src="jupiter.jpg"
+                    alt="Jupiter"
+                    class="course-image"
+                    style="width: 100px; height: 200px"
+                  />
+                  <span
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                    "
+                    >Jupiter</span
+                  >
+                </div>
+              </td>
+              <td>
+                Plunge into the colossal storm systems and mesmerizing cloud
+                bands of Jupiter. Learn about its immense magnetic field, dozens
+                of moons, and the Great Red Spot—a tempest larger than Earth.
+                Explore the gas giant’s dynamic atmosphere and its role in
+                shaping the solar system.
+              </td>
+            </tr>
+
+            <!-- Saturn -->
+            <tr>
+              <td><input type="checkbox" id="saturn-checkbox" /></td>
+              <td style="text-align: center">
+                <div style="position: relative">
+                  <img
+                    src="saturn.jpg"
+                    alt="Saturn"
+                    class="course-image"
+                    style="width: 100px; height: 200px"
+                  />
+                  <span
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                    "
+                    >Saturn</span
+                  >
+                </div>
+              </td>
+              <td>
+                Delve into the captivating world of Saturn, adorned with its
+                magnificent ring system. Study the icy particles that create
+                these ethereal rings and unravel the mysteries of its moon
+                Titan—a frigid world with lakes of liquid methane. Saturn
+                beckons with its cosmic elegance and scientific puzzles.
+              </td>
+            </tr>
+
+            <!-- Uranus -->
+            <tr>
+              <td><input type="checkbox" id="uranus-checkbox" /></td>
+              <td style="text-align: center">
+                <div style="position: relative">
+                  <img
+                    src="uranus.jpg"
+                    alt="Uranus"
+                    class="course-image"
+                    style="width: 100px; height: 200px"
+                  />
+                  <span
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                    "
+                    >Uranus</span
+                  >
+                </div>
+              </td>
+              <td>
+                Explore the sideways wonder of Uranus, a planet that rolls along
+                its orbital path like a cosmic barrel. Investigate its icy
+                composition, faint ring system, and peculiar magnetic field.
+                Discover the enigmatic blue-green hue of this distant giant and
+                its intriguing moons.
+              </td>
+            </tr>
+            <!-- Neptune -->
+            <tr>
+              <td><input type="checkbox" id="neptune-checkbox" /></td>
+              <td style="text-align: center">
+                <div style="position: relative">
+                  <img
+                    src="neptune.jpg"
+                    alt="Neptune"
+                    class="course-image"
+                    style="width: 100px; height: 200px"
+                  />
+                  <span
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                    "
+                    >Neptune</span
+                  >
+                </div>
+              </td>
+              <td>
+                Plunge into the azure depths of Neptune, the windiest planet in
+                the solar system. Study its turbulent atmosphere, dark storms,
+                and the elusive Great Dark Spot. Unearth the mysteries of
+                Triton, Neptune’s captivating moon, and ponder the icy giants
+                that dance beyond the Kuiper Belt.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="iclp hidden">
+        <h1>iclp</h1>
+        <span style="font-size: 50px; font-family: Arial, Helvetica, sans-serif"
+          >Learn about our Solar System</span
+        >
+      </div>
+
+      <div class="ap hidden">
+        <h1>Assessment</h1>
+        <form id="space-assessment">
+          <ol>
+            <li>
+              <p>What is the largest planet in our solar system?</p>
+              <input type="radio" name="q1" value="a" /> A) Earth<br />
+              <input type="radio" name="q1" value="b" /> B) Jupiter<br />
+              <input type="radio" name="q1" value="c" /> C) Mars<br />
+              <input type="radio" name="q1" value="d" /> D) Venus<br />
+            </li>
+            <li>
+              <p>Which planet is known as the "Red Planet"?</p>
+              <input type="radio" name="q2" value="a" /> A) Venus<br />
+              <input type="radio" name="q2" value="b" /> B) Jupiter<br />
+              <input type="radio" name="q2" value="c" /> C) Mars<br />
+              <input type="radio" name="q2" value="d" /> D) Saturn<br />
+            </li>
+            <li>
+              <p>Which planet is closest to the Sun?</p>
+              <input type="radio" name="q3" value="a" /> A) Jupiter<br />
+              <input type="radio" name="q3" value="b" /> B) Venus<br />
+              <input type="radio" name="q3" value="c" /> C) Mercury<br />
+              <input type="radio" name="q3" value="d" /> D) Mars<br />
+            </li>
+            <li>
+              <p>Which planet has the most moons in our solar system?</p>
+              <input type="radio" name="q4" value="a" /> A) Earth<br />
+              <input type="radio" name="q4" value="b" /> B) Jupiter<br />
+              <input type="radio" name="q4" value="c" /> C) Saturn<br />
+              <input type="radio" name="q4" value="d" /> D) Mars<br />
+            </li>
+            <li>
+              <p>Which planet is famous for its beautiful rings?</p>
+              <input type="radio" name="q5" value="a" /> A) Venus<br />
+              <input type="radio" name="q5" value="b" /> B) Mars<br />
+              <input type="radio" name="q5" value="c" /> C) Saturn<br />
+              <input type="radio" name="q5" value="d" /> D) Neptune<br />
+            </li>
+            <li>
+              <p>
+                Which planet is often referred to as the "Evening Star" or the
+                "Morning Star"?
+              </p>
+              <input type="radio" name="q6" value="a" /> A) Venus<br />
+              <input type="radio" name="q6" value="b" /> B) Mars<br />
+              <input type="radio" name="q6" value="c" /> C) Jupiter<br />
+              <input type="radio" name="q6" value="d" /> D) Mercury<br />
+            </li>
+            <li>
+              <p>Which planet has the tallest volcano in the solar system?</p>
+              <input type="radio" name="q7" value="a" /> A) Earth<br />
+              <input type="radio" name="q7" value="b" /> B) Mars<br />
+              <input type="radio" name="q7" value="c" /> C) Venus<br />
+              <input type="radio" name="q7" value="d" /> D) Mercury<br />
+            </li>
+            <li>
+              <p>
+                Which planet is known for its extreme temperatures and sulfuric
+                acid clouds?
+              </p>
+              <input type="radio" name="q8" value="a" /> A) Earth<br />
+              <input type="radio" name="q8" value="b" /> B) Mars<br />
+              <input type="radio" name="q8" value="c" /> C) Venus<br />
+              <input type="radio" name="q8" value="d" /> D) Jupiter<br />
+            </li>
+            <li>
+              <p>
+                Which planet has a moon named Titan that is larger than the
+                planet Mercury?
+              </p>
+              <input type="radio" name="q9" value="a" /> A) Mars<br />
+              <input type="radio" name="q9" value="b" /> B) Jupiter<br />
+              <input type="radio" name="q9" value="c" /> C) Saturn<br />
+              <input type="radio" name="q9" value="d" /> D) Uranus<br />
+            </li>
+            <li>
+              <p>
+                Which planet's rotational axis is tilted almost parallel to its
+                orbital plane, causing extreme seasonal variations?
+              </p>
+              <input type="radio" name="q10" value="a" /> A) Uranus<br />
+              <input type="radio" name="q10" value="b" /> B) Venus<br />
+              <input type="radio" name="q10" value="c" /> C) Jupiter<br />
+              <input type="radio" name="q10" value="d" /> D) Saturn<br />
+            </li>
+          </ol>
+          <br /><br />
+          <button
+            class="submitButton"
+            onclick="submitAssessment()"
+            style="padding: 15px"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <div class="fncp hidden" style="width: 30%; min-width: 300px">
+        <div>
+          <br />
+          <span style="font-size: 35px; color: orange">Feedback</span
+          ><br /><br />
+
+          <form name="fncf" id="fncf">
+            <table id="feedback">
+              <tr>
+                <td>
+                  <label for="fn" class="feedbackLabel">full name: </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="text"
+                    name="fn"
+                    id="fn"
+                    placeholder="full name"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="ei" class="feedbackLabel">email id: </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="email"
+                    name="ei"
+                    id="ei"
+                    placeholder="email id"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="fd" class="feedbackLabel">feedback: </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <textarea
+                    placeholder="feedback"
+                    id="feedback-textarea"
+                  ></textarea>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <br />
+          <a class="submitButton" onclick="submitFeedback()"> Submit </a>
         </div>
 
-        <div class="iclp hidden">
-            <h1>iclp</h1>
-            <span style="font-size: 50px; font-family: Arial, Helvetica, sans-serif;">Learn about our Solar System</span>
+        <div>
+          <br /><br />
+          <span style="font-size: 35px; color: orange">Contact</span
+          ><br /><br />
+
+          <span style="color: gray">phone: </span><br />
+          <span style="font-size: 25px">+91 8050377908 </span><br />
+          <span style="color: gray">email id: </span><br />
+          <span style="font-size: 25px">krishna.kenny4@gmail.com </span><br />
         </div>
-
-        <div class="ap hidden">
-            <h1>ap</h1>
-        </div>
-
-
-
-
-
-
-        <div class="fncp hidden" style="width: 30%; min-width: 300px;">
-            
-            <div>
-                <br>
-            <span style="font-size: 35px;">Feedback</span><br><br>
-
-
-            <form name="fncf" id="fncf">
-
-                <table id="feedback">
-                    <tr>
-                        <td><label for="fn" class="feedbackLabel">full name: </label></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" name="fn" id="fn" placeholder="full name"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="ei" class="feedbackLabel">email id: </label></td>
-                    </tr>
-                    <tr>
-                        <td><input type="email" name="ei" id="ei" placeholder="email id"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="fd" class="feedbackLabel">feedback: </label></td>
-                    </tr>
-                    <tr>
-                        <td><textarea placeholder="feedback" id="feedback"></textarea></td>
-                    </tr>
-                </table>
-
-            </form>
-            </div>
-
-
-            <div><br><br>
-                <span style="font-size: 35px;">Contact</span><br><br>
-
-                <span style="color:gray;">phone: </span><br>
-                <span style="font-size: 25px;">+91 8050377908 </span><br>
-                <span style="color:gray;">email id: </span><br>
-                <span style="font-size: 25px;">krishna.kenny4@gmail.com </span><br>
-                
-            </div>
-
-        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
