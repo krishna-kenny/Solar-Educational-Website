@@ -1,0 +1,492 @@
+/* Global styles */
+/* Global styles */
+/* Add a general font-family */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply a box-sizing border-box to all elements */
+* {
+  box-sizing: border-box;
+}
+
+/* Update button styling to ensure consistency */
+button,
+input[type="button"],
+input[type="submit"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Ensure buttons are displayed inline */
+  margin: 0; /* Remove default margin */
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Update link styling */
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Update navigation styles */
+nav {
+  background-color: #007bff;
+  padding: 10px 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly; /* evenly spaced links */
+}
+
+li:not(:last-child):after {
+  content: "";
+  position: absolute;
+  right: -10px; /* adjust the position of the line */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Update logout button color */
+.logout-button {
+  color: red;
+}
+
+/* Improve consistency and readability of headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h1,
+h2 {
+  color: #333;
+}
+
+h3,
+h4 {
+  color: #555;
+}
+
+h5,
+h6 {
+  color: #777;
+}
+
+/* Ensure consistency in margin and padding */
+.margin {
+  margin: 0;
+}
+
+.padding {
+  padding: 20px;
+}
+
+.animated-slide {
+  opacity: 0;
+  transform: translateY(-100%);
+  animation: slide-in 2s forwards;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("./sign_up_photo.png"); /* Set background image */
+  background-size: cover; /* Make sure the image covers the entire background */
+}
+
+.sign-up-title {
+  font-size: 50px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+}
+
+.form-container {
+  background-color: rgba(111, 111, 111, 0.5); /* Add transparency to the form */
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Ensure buttons are displayed inline */
+  margin: 0; /* Remove default margin */
+  border-radius: 5px; /* Add border-radius */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+nav {
+  background-color: #007bff;
+  padding: 10px 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly; /* evenly spaced links */
+}
+
+li {
+  position: relative;
+}
+
+li:not(:last-child):after {
+  content: "";
+  position: absolute;
+  right: -10px; /* adjust the position of the line */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+a,
+button,
+.logout-button {
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  border-radius: 5px; /* Add border-radius */
+}
+
+a:hover,
+button:hover,
+.logout-button:hover {
+  cursor: pointer;
+}
+
+.logout-button {
+  color: red; /* Change logout button color */
+}
+
+.company-profile-container {
+  max-width: 1200px; /* Set maximum width for content */
+  margin: 0 auto; /* Center the content horizontally */
+  padding: 20px; /* Add padding around the content */
+}
+
+.company-profile-title {
+  font-size: 2.5rem; /* Adjust title font size */
+  color: #333; /* Change title color */
+  margin-bottom: 20px; /* Add spacing below the title */
+}
+
+.company-profile-section {
+  margin-bottom: 40px; /* Add spacing between sections */
+}
+
+.company-profile-section-title {
+  font-size: 1.5rem; /* Adjust section title font size */
+  color: #555; /* Change section title color */
+  margin-bottom: 10px; /* Add spacing below section title */
+}
+
+.company-profile-section-content {
+  font-size: 1rem; /* Adjust section content font size */
+  color: #777; /* Change section content color */
+  line-height: 1.6; /* Increase line height for better readability */
+}
+
+.course-registration-container {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.course-registration-container h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.course-checkbox {
+  margin-bottom: 10px;
+}
+
+.course-checkbox input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.selected-course {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.selected-course h3 {
+  font-size: 20px;
+  color: #333;
+}
+
+.selected-course p {
+  font-size: 16px;
+  color: #666;
+}
+
+.contacts {
+  background-color: #f9f9f9;
+}
+
+.contacts .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contacts .left iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.contacts .left,
+.contacts .right {
+  flex: 1;
+}
+
+.contacts .right {
+  padding: 0 20px;
+}
+
+.contacts h1 {
+  color: #333;
+}
+
+.contacts p {
+  color: #777;
+}
+
+.contacts .items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contacts .box {
+  width: 50%;
+}
+
+.contacts .box h4 {
+  color: #333;
+}
+
+.contacts .box p {
+  color: #666;
+}
+
+.contact-form {
+  margin-top: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.primary-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background-color: #0056b3;
+}
+
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links h3 {
+  color: #333;
+}
+
+.social-links span {
+  color: #007bff;
+}
+
+.back {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.back h1,
+.back h2 {
+  color: #333;
+}
+
+.assessment-container {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.assessment-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.question-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.question-item {
+  margin-bottom: 20px;
+}
+
+.question-text {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.option-item {
+  margin-bottom: 10px;
+}
+
+.option-label {
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.submit-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.interactive-course-learning {
+  margin: 20px;
+}
+
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item {
+  width: 45%;
+  padding: 20px;
+  background-color: #eee;
+  margin: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.description {
+  padding: 10px;
+  font-size: 16px;
+}
