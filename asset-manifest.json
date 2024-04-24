@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/krishna-kenny/Solar-Educational-Website-React/static/css/main.3613e1d7.css",
+    "main.js": "/krishna-kenny/Solar-Educational-Website-React/static/js/main.7826071b.js",
+    "static/js/453.cfe171d2.chunk.js": "/krishna-kenny/Solar-Educational-Website-React/static/js/453.cfe171d2.chunk.js",
+    "static/media/sign_up_photo.png": "/krishna-kenny/Solar-Educational-Website-React/static/media/sign_up_photo.b127dcc5593a86ce1fab.png",
+    "index.html": "/krishna-kenny/Solar-Educational-Website-React/index.html",
+    "main.3613e1d7.css.map": "/krishna-kenny/Solar-Educational-Website-React/static/css/main.3613e1d7.css.map",
+    "main.7826071b.js.map": "/krishna-kenny/Solar-Educational-Website-React/static/js/main.7826071b.js.map",
+    "453.cfe171d2.chunk.js.map": "/krishna-kenny/Solar-Educational-Website-React/static/js/453.cfe171d2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3613e1d7.css",
+    "static/js/main.7826071b.js"
+  ]
+}
