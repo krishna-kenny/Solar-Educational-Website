@@ -177,7 +177,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #005ec3;
 }
 
 nav {
@@ -244,7 +244,7 @@ button:hover,
 }
 
 .company-profile-section:hover {
-  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s ease;
 }
 
@@ -272,7 +272,7 @@ button:hover,
 }
 
 .course-registration-container:hover {
-  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s ease;
 }
 
@@ -295,6 +295,11 @@ button:hover,
   background-color: #ddf7ff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.selected-course:hover {
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
 }
 
 .selected-course h3 {
@@ -335,7 +340,7 @@ button:hover,
 }
 
 .right:hover {
-  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s ease;
 }
 
@@ -425,7 +430,7 @@ button:hover,
 }
 
 .assessment-container:hover {
-  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s ease;
 }
 
@@ -441,7 +446,14 @@ button:hover,
 }
 
 .question-item {
-  margin-bottom: 20px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #b0e7ff;
+}
+
+.question-item:hover {
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
 }
 
 .question-text {
@@ -489,7 +501,7 @@ button:hover,
 }
 
 .item:hover {
-  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s ease;
 }
 
